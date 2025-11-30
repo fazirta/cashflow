@@ -54,10 +54,10 @@ RUN apt-get update -qq && \
 COPY --from=build /app /app
 
 # Ensure the entrypoint script is executable.
-RUN chmod +x /app/docker-entrypoint.js
+RUN chmod +x /app/docker-entrypoint.cjs
 
 # Entrypoint prepares the database.
-ENTRYPOINT [ "/app/docker-entrypoint.js" ]
+ENTRYPOINT [ "/app/docker-entrypoint.cjs" ]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
